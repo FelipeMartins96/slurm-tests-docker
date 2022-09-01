@@ -1,0 +1,9 @@
+services:
+  login:
+    image: ubuntu:20.04
+  scheduler:
+    image: ubuntu:20.04
+  node1:
+    image: ubuntu:20.04
+  node2:
+    image: ubuntu:20.04
