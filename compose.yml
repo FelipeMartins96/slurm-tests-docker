@@ -1,6 +1,8 @@
 services:
   login:
-    image: ubuntu:20.04
+    build:
+      context: .
+      dockerfile: login.Dockerfile
   scheduler:
     image: ubuntu:20.04
   node1:
