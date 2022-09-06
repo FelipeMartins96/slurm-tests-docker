@@ -3,9 +3,24 @@ services:
     build:
       context: .
       dockerfile: login.Dockerfile
+    hostname: login
+    tty: true
   scheduler:
-    image: ubuntu:20.04
+    build:
+      context: .
+      dockerfile: scheduler.Dockerfile
+    hostname: scheduler1
+    command: /bin/bash -c "service munge start; slurmctld -Dcvvv"
   node1:
-    image: ubuntu:20.04
+    build:
+      context: .
+      dockerfile: node.Dockerfile
+    hostname: node1
+    tty: true
+    command: /bin/bash -c "service munge start; slurmd -Dcvvv"
   node2:
-    image: ubuntu:20.04
+    build:
+      context: .
+      dockerfile: node.Dockerfile
+    hostname: node2
+    command: /bin/bash -c "service munge start; slurmd -Dcvvv"
