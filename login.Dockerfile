@@ -11,7 +11,3 @@ RUN mkdir /var/spool/slurm \
 
 COPY slurm.conf /etc/slurm-llnl/
 COPY --chown=munge:munge munge.key /etc/munge/munge.key
-
-RUN useradd -rm -d /home/user -s /bin/bash -G sudo user
-USER user
-WORKDIR /home/user
